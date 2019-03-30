@@ -5,6 +5,8 @@ APP_HOME=~/xjxcloud
 BAK_HOME=~/backup
 APP_NAME=$( basename $APP_HOME )
 
+mkdir -p $BAK_HOME
+
 backup() {
   suffix=`date "+%Y%m%d%H%M%S"`
   rsync -av --delete $IGNORE  $APP_HOME/ $BAK_HOME/${APP_NAME}_${suffix}
